@@ -1,0 +1,33 @@
+[2021-08-11 01:33:27,061] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: elasticsearch_dag.connection_to_es 2021-08-11T01:33:23.275908+00:00 [queued]>
+[2021-08-11 01:33:27,084] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: elasticsearch_dag.connection_to_es 2021-08-11T01:33:23.275908+00:00 [queued]>
+[2021-08-11 01:33:27,085] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-11 01:33:27,085] {taskinstance.py:1068} INFO - Starting attempt 1 of 1
+[2021-08-11 01:33:27,085] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-11 01:33:27,100] {taskinstance.py:1087} INFO - Executing <Task(PostgresToElasticOperator): connection_to_es> on 2021-08-11T01:33:23.275908+00:00
+[2021-08-11 01:33:27,103] {standard_task_runner.py:52} INFO - Started process 388457 to run task
+[2021-08-11 01:33:27,126] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'elasticsearch_dag', 'connection_to_es', '2021-08-11T01:33:23.275908+00:00', '--job-id', '106', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/elasticsearch_dag.py', '--cfg-path', '/tmp/tmplru_6l0s', '--error-file', '/tmp/tmpo1h0l4aq']
+[2021-08-11 01:33:27,129] {standard_task_runner.py:77} INFO - Job 106: Subtask connection_to_es
+[2021-08-11 01:33:27,290] {logging_mixin.py:104} INFO - Running <TaskInstance: elasticsearch_dag.connection_to_es 2021-08-11T01:33:23.275908+00:00 [running]> on host airflowvm
+[2021-08-11 01:33:27,434] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=elasticsearch_dag
+AIRFLOW_CTX_TASK_ID=connection_to_es
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-11T01:33:23.275908+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-08-11T01:33:23.275908+00:00
+[2021-08-11 01:33:27,446] {base.py:69} INFO - Using connection to: id: elasticsearch_default. Host: localhost, Port: 9200, Schema: http, Login: None, Password: None, extra: {}
+[2021-08-11 01:33:27,458] {base.py:69} INFO - Using connection to: id: ***_default. Host: localhost, Port: 5432, Schema: , Login: ***, Password: ***, extra: {'cursor': 'realdictcursor'}
+[2021-08-11 01:33:27,466] {taskinstance.py:1481} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1137, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1311, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1341, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/airflow/dags/plugins/elasticsearch_plugin/operators/postgres_to_elastic.py", line 27, in execute
+    with closing(conn.curso()) as cur:
+AttributeError: 'psycopg2.extensions.connection' object has no attribute 'curso'
+[2021-08-11 01:33:27,467] {taskinstance.py:1524} INFO - Marking task as FAILED. dag_id=elasticsearch_dag, task_id=connection_to_es, execution_date=20210811T013323, start_date=20210811T013327, end_date=20210811T013327
+[2021-08-11 01:33:27,523] {local_task_job.py:151} INFO - Task exited with return code 1

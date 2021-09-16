@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_common.py", line 447, in wrapper
+    ret = self._cache[fun]
+AttributeError: _cache
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_pslinux.py", line 1576, in wrapper
+    return fun(self, *args, **kwargs)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_common.py", line 450, in wrapper
+    return fun(self)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_pslinux.py", line 1618, in _parse_stat_file
+    with open_binary("%s/%s/stat" % (self._procfs_path, self.pid)) as f:
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_common.py", line 711, in open_binary
+    return open(fname, "rb", **kwargs)
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/90976/stat'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/__init__.py", line 354, in _init
+    self.create_time()
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/__init__.py", line 710, in create_time
+    self._create_time = self._proc.create_time()
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_pslinux.py", line 1576, in wrapper
+    return fun(self, *args, **kwargs)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_pslinux.py", line 1788, in create_time
+    ctime = float(self._parse_stat_file()['create_time'])
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/_pslinux.py", line 1583, in wrapper
+    raise NoSuchProcess(self.pid, self._name)
+psutil.NoSuchProcess: psutil.NoSuchProcess process no longer exists (pid=90976)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/sandbox/bin/airflow", line 8, in <module>
+    sys.exit(main())
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/__main__.py", line 40, in main
+    args.func(args)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/utils/cli.py", line 91, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/cli/commands/webserver_command.py", line 480, in webserver
+    monitor_gunicorn(gunicorn_master_proc.pid)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/cli/commands/webserver_command.py", line 445, in monitor_gunicorn
+    GunicornMonitor(
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/cli/commands/webserver_command.py", line 205, in start
+    self._wait_until_true(
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/cli/commands/webserver_command.py", line 153, in _wait_until_true
+    while not fn():
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/cli/commands/webserver_command.py", line 206, in <lambda>
+    lambda: self.num_workers_expected == self._get_num_workers_running(),
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/cli/commands/webserver_command.py", line 147, in _get_num_workers_running
+    workers = psutil.Process(self.gunicorn_master_proc.pid).children()
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/__init__.py", line 326, in __init__
+    self._init(pid)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/psutil/__init__.py", line 367, in _init
+    raise NoSuchProcess(pid, None, msg)
+psutil.NoSuchProcess: psutil.NoSuchProcess no process found with pid 90976

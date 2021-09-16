@@ -1,0 +1,26 @@
+[2021-08-10 02:32:05,012] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: parallel_dag.processing_tasks.spark_task.task3_spark 2021-08-10T02:31:59.977766+00:00 [queued]>
+[2021-08-10 02:32:05,072] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: parallel_dag.processing_tasks.spark_task.task3_spark 2021-08-10T02:31:59.977766+00:00 [queued]>
+[2021-08-10 02:32:05,076] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-10 02:32:05,076] {taskinstance.py:1068} INFO - Starting attempt 1 of 1
+[2021-08-10 02:32:05,076] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-10 02:32:05,111] {taskinstance.py:1087} INFO - Executing <Task(BashOperator): processing_tasks.spark_task.task3_spark> on 2021-08-10T02:31:59.977766+00:00
+[2021-08-10 02:32:05,119] {standard_task_runner.py:52} INFO - Started process 222714 to run task
+[2021-08-10 02:32:05,146] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'parallel_dag', 'processing_tasks.spark_task.task3_spark', '2021-08-10T02:31:59.977766+00:00', '--job-id', '30', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/parallel_dag.py', '--cfg-path', '/tmp/tmpog5zo47z', '--error-file', '/tmp/tmpgjo5v3jm']
+[2021-08-10 02:32:05,147] {standard_task_runner.py:77} INFO - Job 30: Subtask processing_tasks.spark_task.task3_spark
+[2021-08-10 02:32:05,384] {logging_mixin.py:104} INFO - Running <TaskInstance: parallel_dag.processing_tasks.spark_task.task3_spark 2021-08-10T02:31:59.977766+00:00 [running]> on host airflowvm
+[2021-08-10 02:32:05,686] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=parallel_dag
+AIRFLOW_CTX_TASK_ID=processing_tasks.spark_task.task3_spark
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-10T02:31:59.977766+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-08-10T02:31:59.977766+00:00
+[2021-08-10 02:32:05,690] {subprocess.py:52} INFO - Tmp dir root location: 
+ /tmp
+[2021-08-10 02:32:05,691] {subprocess.py:63} INFO - Running command: ['bash', '-c', 'sleep 3']
+[2021-08-10 02:32:05,718] {subprocess.py:75} INFO - Output:
+[2021-08-10 02:32:08,722] {subprocess.py:83} INFO - Command exited with return code 0
+[2021-08-10 02:32:08,840] {taskinstance.py:1184} INFO - Marking task as SUCCESS. dag_id=parallel_dag, task_id=processing_tasks.spark_task.task3_spark, execution_date=20210810T023159, start_date=20210810T023205, end_date=20210810T023208
+[2021-08-10 02:32:08,913] {taskinstance.py:1245} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-08-10 02:32:08,930] {local_task_job.py:151} INFO - Task exited with return code 0

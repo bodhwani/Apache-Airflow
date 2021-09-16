@@ -1,0 +1,36 @@
+[2021-08-10 22:12:21,285] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: trigger_rule.task_1 2021-08-10T22:12:19.768465+00:00 [queued]>
+[2021-08-10 22:12:21,313] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: trigger_rule.task_1 2021-08-10T22:12:19.768465+00:00 [queued]>
+[2021-08-10 22:12:21,314] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-10 22:12:21,314] {taskinstance.py:1068} INFO - Starting attempt 1 of 1
+[2021-08-10 22:12:21,314] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-10 22:12:21,331] {taskinstance.py:1087} INFO - Executing <Task(BashOperator): task_1> on 2021-08-10T22:12:19.768465+00:00
+[2021-08-10 22:12:21,336] {standard_task_runner.py:52} INFO - Started process 335178 to run task
+[2021-08-10 22:12:21,355] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'trigger_rule', 'task_1', '2021-08-10T22:12:19.768465+00:00', '--job-id', '83', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/trigger_rule.py', '--cfg-path', '/tmp/tmpbmx5w1q9', '--error-file', '/tmp/tmp94cmtvg4']
+[2021-08-10 22:12:21,372] {standard_task_runner.py:77} INFO - Job 83: Subtask task_1
+[2021-08-10 22:12:21,578] {logging_mixin.py:104} INFO - Running <TaskInstance: trigger_rule.task_1 2021-08-10T22:12:19.768465+00:00 [running]> on host airflowvm
+[2021-08-10 22:12:21,831] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=trigger_rule
+AIRFLOW_CTX_TASK_ID=task_1
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-10T22:12:19.768465+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-08-10T22:12:19.768465+00:00
+[2021-08-10 22:12:21,840] {subprocess.py:52} INFO - Tmp dir root location: 
+ /tmp
+[2021-08-10 22:12:21,840] {subprocess.py:63} INFO - Running command: ['bash', '-c', 'exit 1']
+[2021-08-10 22:12:21,863] {subprocess.py:75} INFO - Output:
+[2021-08-10 22:12:21,893] {subprocess.py:83} INFO - Command exited with return code 1
+[2021-08-10 22:12:21,932] {taskinstance.py:1481} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1137, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1311, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1341, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/sandbox/lib/python3.8/site-packages/airflow/operators/bash.py", line 180, in execute
+    raise AirflowException('Bash command failed. The command returned a non-zero exit code.')
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code.
+[2021-08-10 22:12:21,938] {taskinstance.py:1524} INFO - Marking task as FAILED. dag_id=trigger_rule, task_id=task_1, execution_date=20210810T221219, start_date=20210810T221221, end_date=20210810T221221
+[2021-08-10 22:12:22,044] {local_task_job.py:151} INFO - Task exited with return code 1

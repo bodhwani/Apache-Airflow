@@ -1,0 +1,25 @@
+[2021-08-08 21:03:17,676] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: user_processing.extracting_user 2021-08-07T00:00:00+00:00 [queued]>
+[2021-08-08 21:03:17,688] {taskinstance.py:876} INFO - Dependencies all met for <TaskInstance: user_processing.extracting_user 2021-08-07T00:00:00+00:00 [queued]>
+[2021-08-08 21:03:17,691] {taskinstance.py:1067} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-08 21:03:17,692] {taskinstance.py:1068} INFO - Starting attempt 1 of 1
+[2021-08-08 21:03:17,692] {taskinstance.py:1069} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-08 21:03:17,710] {taskinstance.py:1087} INFO - Executing <Task(SimpleHttpOperator): extracting_user> on 2021-08-07T00:00:00+00:00
+[2021-08-08 21:03:17,712] {standard_task_runner.py:52} INFO - Started process 131308 to run task
+[2021-08-08 21:03:17,724] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'user_processing', 'extracting_user', '2021-08-07T00:00:00+00:00', '--job-id', '20', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/user_processing.py', '--cfg-path', '/tmp/tmp_rvzyzfe', '--error-file', '/tmp/tmpmp2keb6c']
+[2021-08-08 21:03:17,725] {standard_task_runner.py:77} INFO - Job 20: Subtask extracting_user
+[2021-08-08 21:03:17,834] {logging_mixin.py:104} INFO - Running <TaskInstance: user_processing.extracting_user 2021-08-07T00:00:00+00:00 [running]> on host airflowvm
+[2021-08-08 21:03:17,942] {taskinstance.py:1280} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=user_processing
+AIRFLOW_CTX_TASK_ID=extracting_user
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-07T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-08-07T00:00:00+00:00
+[2021-08-08 21:03:17,943] {http.py:111} INFO - Calling HTTP method
+[2021-08-08 21:03:17,954] {base.py:69} INFO - Using connection to: id: user_api. Host: https://randomuser.me/, Port: None, Schema: , Login: , Password: None, extra: {}
+[2021-08-08 21:03:17,955] {http.py:140} INFO - Sending 'GET' to url: https://randomuser.me/api/
+[2021-08-08 21:03:18,207] {http.py:115} INFO - {"results":[{"gender":"female","name":{"title":"Miss","first":"Anne-Marijn","last":"Heuveling"},"location":{"street":{"number":2977,"name":"Azalealaan"},"city":"Eenigenburg","state":"Limburg","country":"Netherlands","postcode":89181,"coordinates":{"latitude":"43.7183","longitude":"142.3728"},"timezone":{"offset":"+9:00","description":"Tokyo, Seoul, Osaka, Sapporo, Yakutsk"}},"email":"anne-marijn.heuveling@example.com","login":{"uuid":"043e4136-e50f-4710-8e01-c603f6ef424c","username":"beautifulrabbit482","password":"7777","salt":"uc7Ceat3","md5":"dfb688e1b3cded4f97eaf58103b218ca","sha1":"87328882bc6cfac0b4e58cacf83f0162c4e1dcf0","sha256":"2b8629a36275e7bc246271513da690aa1feb3b4bdf5bca2d9634e4414e959571"},"dob":{"date":"1946-07-08T19:57:40.504Z","age":75},"registered":{"date":"2006-08-05T03:56:26.158Z","age":15},"phone":"(499)-212-8651","cell":"(925)-331-4567","id":{"name":"BSN","value":"54233223"},"picture":{"large":"https://randomuser.me/api/portraits/women/96.jpg","medium":"https://randomuser.me/api/portraits/med/women/96.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/96.jpg"},"nat":"NL"}],"info":{"seed":"5f9f5947b71bf71e","results":1,"page":1,"version":"1.3"}}
+[2021-08-08 21:03:18,230] {taskinstance.py:1184} INFO - Marking task as SUCCESS. dag_id=user_processing, task_id=extracting_user, execution_date=20210807T000000, start_date=20210808T210317, end_date=20210808T210318
+[2021-08-08 21:03:18,270] {taskinstance.py:1245} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-08-08 21:03:18,290] {local_task_job.py:151} INFO - Task exited with return code 0
