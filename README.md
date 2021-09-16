@@ -70,7 +70,5 @@ Then, do these steps to set up postgresql database:
 
 ### Running + Scaling infinite tasks
 We need multiple executors (instead of only one executor) in order to run infinite tasks in parallel. We have two executors to achieve this:
-1. Celery Executor: Refer notes
-- https://usbank.udemy.com/course/the-complete-hands-on-course-to-master-apache-airflow/learn/lecture/11999812#overview
-
+1. Celery Executor
 2. Kubernetes Executor
